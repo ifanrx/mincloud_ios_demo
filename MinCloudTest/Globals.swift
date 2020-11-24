@@ -31,7 +31,9 @@ func showMessageAlert() -> Alert {
 func setResult(_ result: Any?, error: NSError?) {
     GlobalStore.store.result = result
     GlobalStore.store.error = error
-    GlobalStore.store.showMessage.toggle()
+    DispatchQueue.main.async {
+        GlobalStore.store.showMessage.toggle()
+    }
 }
 
 struct MinButton: View {

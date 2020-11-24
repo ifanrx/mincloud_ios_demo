@@ -25,9 +25,11 @@ struct PageSortView: View {
             }
             MinButton(title: "creatd_at 升序") {
                 PageSortCase.pageAes(limit: self.limit, offset: self.offset)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             MinButton(title: "created_at 降序") {
                 PageSortCase.pageDes(limit: self.limit, offset: self.offset)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             
             Text("字段过滤与扩展").foregroundColor(Color.red).padding(.top, 20)

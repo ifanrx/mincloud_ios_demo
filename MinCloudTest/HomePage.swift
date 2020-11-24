@@ -41,18 +41,6 @@ struct HomePage: View {
                     NavigationLink(destination: UserQueryView()) {
                         Text("用户查询")
                     }
-                    NavigationLink(destination: SchemaEidtView()) {
-                        Text("schema 增删改")
-                    }
-                    NavigationLink(destination: QueryView()) {
-                        Text("schema 查询")
-                    }
-                    NavigationLink(destination: GeoView()) {
-                        Text("schema geo")
-                    }
-                    NavigationLink(destination: BatchView()) {
-                        Text("schema 批量")
-                    }
                     NavigationLink(destination: ContentView()) {
                         Text("内容库")
                     }
@@ -65,7 +53,25 @@ struct HomePage: View {
                     NavigationLink(destination: BaaSView()) {
                         Text("云函数/验证码")
                     }
-                }.navigationBarTitle("SDK 测试应用")
+                }
+                
+                List {
+                    NavigationLink(destination: SchemaEidtView()) {
+                        Text("schema 增删改")
+                    }
+                    NavigationLink(destination: QueryView()) {
+                        Text("schema 查询")
+                    }
+                    NavigationLink(destination: GeoView()) {
+                        Text("schema geo")
+                    }
+                    NavigationLink(destination: BatchView()) {
+                        Text("schema 批量")
+                    }
+                    NavigationLink(destination: WampView()) {
+                        Text("实时数据库")
+                    }
+                }
             }
         }
     }

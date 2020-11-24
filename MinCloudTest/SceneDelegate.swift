@@ -67,5 +67,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         _ = BaaS.handleOpenURL(url: url)
     }
+    
+    func scene(_ scene: UIScene, continue userActivity: NSUserActivity) {
+        _ = BaaS.handleOpenUniversalLink(userActivity: userActivity)
+    }
 }
 

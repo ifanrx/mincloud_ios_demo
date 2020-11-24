@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         BaaS.register(clientID: "a4d2d62965ddb57fa4d6")
-        BaaS.registerWechat("wx4b3c1aff4c5389f5")
+        BaaS.registerWechat("wx4b3c1aff4c5389f5", universalLink: "https://www.ifanr.com/demo/")
+//        BaaS.register(clientID: "995140f59511a222c937", serverURLString: "https://v5204.eng.szx.ifanrx.com")
+        BaaS.registerWeibo("542432732", redirectURI: "https://api.weibo.com/oauth2/default.html")
         BaaS.isDebug = true
         
         return true
@@ -46,6 +48,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
         return BaaS.handleOpenURL(url: url)
+    }
+    
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity, restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        return BaaS.handleOpenUniversalLink(userActivity: userActivity)
     }
 }
 

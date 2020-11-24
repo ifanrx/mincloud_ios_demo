@@ -70,20 +70,14 @@ struct UserCase {
     }
     
     static func signIn(with type: Provider, createUser: Bool, syncUserProfile: SyncUserProfileType) {
-        Auth.signIn(with: .wechat, createUser: createUser, syncUserProfile: syncUserProfile) { (currentUser, error) in
+        Auth.signIn(with: type, createUser: createUser, syncUserProfile: syncUserProfile) { (currentUser, error) in
             UserCase.currentUser = currentUser
             setResult(currentUser, error: error)
-        }
-        if WXApi.isWXAppInstalled() {
-            Auth.signIn(with: .wechat, createUser: createUser, syncUserProfile: syncUserProfile) { (currentUser, error) in
-                UserCase.currentUser = currentUser
-                setResult(currentUser, error: error)
-            }
         }
     }
     
     static func associate(with type: Provider, syncUserProfile: SyncUserProfileType) {
-        Auth.associate(with: .wechat, syncUserProfile: syncUserProfile) { (currentUser, error) in
+        Auth.associate(with: type, syncUserProfile: syncUserProfile) { (currentUser, error) in
             UserCase.currentUser = currentUser
             setResult(currentUser, error: error)
         }

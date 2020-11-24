@@ -69,10 +69,13 @@
 		4CBD69042321FB8700C064A1 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD69032321FB8700C064A1 /* LoginView.swift */; };
 		4CBD69062321FD9900C064A1 /* UserCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD69052321FD9900C064A1 /* UserCase.swift */; };
 		4CBD690B2322116F00C064A1 /* UserInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CBD690A2322116F00C064A1 /* UserInfoView.swift */; };
+		4CCB06EC255CE103005FFCAF /* WampView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB06EB255CE103005FFCAF /* WampView.swift */; };
+		4CCB06EF255CE25E005FFCAF /* WampCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CCB06EE255CE25E005FFCAF /* WampCase.swift */; };
 		D12509E12CBA78041F1DA142 /* Pods_MinCloudTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C90DEA38F3A437CCCA538F7D /* Pods_MinCloudTest.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4C2AA05D24AA53D500C3EB03 /* MinCloudTest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MinCloudTest.entitlements; sourceTree = "<group>"; };
 		4C30287D2338C2DB005F1CCF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4C302883233A0490005F1CCF /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		4C322B0E24224E9A00B9F40E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -138,6 +141,8 @@
 		4CBD69032321FB8700C064A1 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		4CBD69052321FD9900C064A1 /* UserCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCase.swift; sourceTree = "<group>"; };
 		4CBD690A2322116F00C064A1 /* UserInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoView.swift; sourceTree = "<group>"; };
+		4CCB06EB255CE103005FFCAF /* WampView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WampView.swift; sourceTree = "<group>"; };
+		4CCB06EE255CE25E005FFCAF /* WampCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WampCase.swift; sourceTree = "<group>"; };
 		8603E65A4507114CF45A5BA8 /* Pods-MinCloudTest.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinCloudTest.debug.xcconfig"; path = "Target Support Files/Pods-MinCloudTest/Pods-MinCloudTest.debug.xcconfig"; sourceTree = "<group>"; };
 		8A88DEB471DC0AF9DD30FDBA /* Pods-MinCloudTest.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MinCloudTest.release.xcconfig"; path = "Target Support Files/Pods-MinCloudTest/Pods-MinCloudTest.release.xcconfig"; sourceTree = "<group>"; };
 		C90DEA38F3A437CCCA538F7D /* Pods_MinCloudTest.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MinCloudTest.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -176,6 +181,7 @@
 		4C841C3B2320A56A00B16D15 /* MinCloudTest */ = {
 			isa = PBXGroup;
 			children = (
+				4C2AA05D24AA53D500C3EB03 /* MinCloudTest.entitlements */,
 				4CAA332B2328F453009BD947 /* BaaS */,
 				4CBD690723220A3800C064A1 /* Base */,
 				4C841C5423211C8500B16D15 /* User */,
@@ -183,6 +189,7 @@
 				4CAA32B62326574C009BD947 /* Geo */,
 				4CAA32B9232657AA009BD947 /* File */,
 				4CAA32BA232657B0009BD947 /* Contnet */,
+				4CCB06E9255CE0D0005FFCAF /* WebSocket */,
 				4CAA32BB232657BA009BD947 /* Payment */,
 				4C841C3C2320A56A00B16D15 /* AppDelegate.swift */,
 				4C841C3E2320A56A00B16D15 /* SceneDelegate.swift */,
@@ -363,6 +370,15 @@
 			name = Case;
 			sourceTree = "<group>";
 		};
+		4CCB06E9255CE0D0005FFCAF /* WebSocket */ = {
+			isa = PBXGroup;
+			children = (
+				4CCB06EB255CE103005FFCAF /* WampView.swift */,
+				4CCB06EE255CE25E005FFCAF /* WampCase.swift */,
+			);
+			name = WebSocket;
+			sourceTree = "<group>";
+		};
 		700C64D4EDBC387A93263FEB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -527,6 +543,7 @@
 				4CAA330B23289AD9009BD947 /* FileView.swift in Sources */,
 				4CAA329C23260179009BD947 /* SchemaEidtView.swift in Sources */,
 				4CAA32A42326486B009BD947 /* OtherEidtView.swift in Sources */,
+				4CCB06EC255CE103005FFCAF /* WampView.swift in Sources */,
 				4CAA331C2328D0E4009BD947 /* PaymentCase.swift in Sources */,
 				4CAA33222328D4E4009BD947 /* QueryOrderContentView.swift in Sources */,
 				4CAA32A223263D51009BD947 /* AtomView.swift in Sources */,
@@ -560,6 +577,7 @@
 				4CBD69042321FB8700C064A1 /* LoginView.swift in Sources */,
 				4C30287E2338C2DB005F1CCF /* Utils.swift in Sources */,
 				4CAA33002327A418009BD947 /* GeoView.swift in Sources */,
+				4CCB06EF255CE25E005FFCAF /* WampCase.swift in Sources */,
 				4CAA331E2328D3C0009BD947 /* PaymentView.swift in Sources */,
 				4CAA330F2328A32B009BD947 /* FileQueryContentView.swift in Sources */,
 				4CAA332A2328F354009BD947 /* BaaSCase.swift in Sources */,
@@ -712,6 +730,7 @@
 			baseConfigurationReference = 8603E65A4507114CF45A5BA8 /* Pods-MinCloudTest.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MinCloudTest/MinCloudTest.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;
@@ -737,6 +756,7 @@
 			baseConfigurationReference = 8A88DEB471DC0AF9DD30FDBA /* Pods-MinCloudTest.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = MinCloudTest/MinCloudTest.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 2;

@@ -18,18 +18,22 @@ struct GetQueryView: View {
             TextField("输入记录 Id", text: $recordId).textFieldStyle(RoundedBorderTextFieldStyle())
             MinButton(title: "获取一条记录") {
                 QueryCase.getRecord(self.recordId)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             
             MinButton(title: "select string") {
                 QueryCase.getRecordSelect(id: self.recordId)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             
             MinButton(title: "select -string") {
                 QueryCase.getRecordNSelect(id: self.recordId)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
             
             MinButton(title: "expand created_by") {
                 QueryCase.getRecordExpand(id: self.recordId)
+                UIApplication.shared.sendAction(#selector(UIResponder.resignFirstResponder), to: nil, from: nil, for: nil)
             }
         }
     }

@@ -70,6 +70,25 @@ struct ThirdAuthView: View {
                 }
             }
             
+            VStack(alignment: .leading, spacing: 5) {
+                MinButton(title: "微博登录+创建用户+setnx") {
+                    UserCase.signIn(with: .weibo, createUser: true, syncUserProfile: .setnx)
+                }
+                
+                MinButton(title: "微博绑定+创建用户+sentx") {
+                    UserCase.associate(with: .weibo, syncUserProfile: .setnx)
+                }
+            }
+            
+            VStack(alignment: .leading, spacing: 5) {
+                MinButton(title: "苹果登录+创建用户+setnx") {
+                    UserCase.signIn(with: .apple, createUser: true, syncUserProfile: .setnx)
+                }
+                
+                MinButton(title: "苹果绑定+创建用户+sentx") {
+                    UserCase.associate(with: .apple, syncUserProfile: .setnx)
+                }
+            }
         }
     }
 }
