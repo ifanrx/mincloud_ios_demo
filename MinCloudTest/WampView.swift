@@ -36,7 +36,7 @@ struct WampView: View {
             }
             
             MinButton(title: "取消订阅update") {
-                WampCase.shared.unSubscribeDelete()
+                WampCase.shared.unSubscribeUpdate()
             }
             
             MinButton(title: "订阅'弹幕'表（不存在）") {

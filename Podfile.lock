@@ -37,7 +37,7 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MinCloud:
-    :commit: a7d4f8101679d4f098c5641b7683686bd546fddd
+    :commit: 7c277a03ac3d09ea443e60b16f946cb4782f849d
     :git: https://github.com/ifanrx/hydrogen-ios-sdk.git
 
 SPEC CHECKSUMS:
