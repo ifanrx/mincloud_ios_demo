@@ -22,6 +22,12 @@ struct OtherEidtView: View {
             .background(valid ? Color.green : Color.gray)
             .disabled(!valid)
             
+            MinButton(title: "更新 point(去掉小数）", background: Color.clear) {
+                EditCase.updatePoint()
+            }
+            .background(valid ? Color.green : Color.gray)
+            .disabled(!valid)
+            
             MinButton(title: "更新 polygon(加 1）", background: Color.clear) {
                 EditCase.updatePolygon()
             }

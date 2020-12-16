@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.4.0)
   - MinCloud (2.0.0-b):
     - MinCloud/Alipay (= 2.0.0-b)
     - MinCloud/Core (= 2.0.0-b)
@@ -7,27 +7,24 @@ PODS:
     - MinCloud/WeChat (= 2.0.0-b)
   - MinCloud/Alipay (2.0.0-b)
   - MinCloud/Core (2.0.0-b):
-    - Moya (~> 13.0)
+    - Alamofire (~> 5.0)
+    - Moya (~> 14.0)
     - Starscream
   - MinCloud/Sina (2.0.0-b)
   - MinCloud/WeChat (2.0.0-b)
-  - Moya (13.0.1):
-    - Moya/Core (= 13.0.1)
-  - Moya/Core (13.0.1):
-    - Alamofire (~> 4.1)
-    - Result (~> 4.1)
-  - Result (4.1.0)
+  - Moya (14.0.0):
+    - Moya/Core (= 14.0.0)
+  - Moya/Core (14.0.0):
+    - Alamofire (~> 5.0)
   - Starscream (4.0.4)
 
 DEPENDENCIES:
   - MinCloud (from `https://github.com/ifanrx/hydrogen-ios-sdk.git`, branch `2.0.0-b`)
-  - Moya (~> 13.0)
 
 SPEC REPOS:
   trunk:
     - Alamofire
     - Moya
-    - Result
     - Starscream
 
 EXTERNAL SOURCES:
@@ -37,16 +34,15 @@ EXTERNAL SOURCES:
 
 CHECKOUT OPTIONS:
   MinCloud:
-    :commit: 7c277a03ac3d09ea443e60b16f946cb4782f849d
+    :commit: a41040bac989bb21cbfeef2b8c3fa919f32c065c
     :git: https://github.com/ifanrx/hydrogen-ios-sdk.git
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
-  MinCloud: 7b0d96cd6098fe42b6ce007c51269e0676ca1a09
-  Moya: f4a4b80ff2f8a4ffc208dfb31cd91636622fee6e
-  Result: bd966fac789cc6c1563440b348ab2598cc24d5c7
+  Alamofire: 3b6a534a3df22db367e4dedeeca73d1ddfcf0e2f
+  MinCloud: 73ab60a012ec91085cc44e248fb3151f622e283f
+  Moya: 5b45dacb75adb009f97fde91c204c1e565d31916
   Starscream: 5178aed56b316f13fa3bc55694e583d35dd414d9
 
-PODFILE CHECKSUM: 2ff06538fe0130bc60ce6ee0be037d2e4c88337b
+PODFILE CHECKSUM: 4262b357a3e49913ce9c7cf22fbd27151edc5ed9
 
 COCOAPODS: 1.10.0.rc.1

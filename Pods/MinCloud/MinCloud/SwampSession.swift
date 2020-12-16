@@ -4,8 +4,7 @@
 
 import Foundation
 import Alamofire
-
-let serialQueue = DispatchQueue(label: "com.mincloud.websocket")
+import Starscream
 
 enum AppState {
     case background
@@ -62,8 +61,11 @@ final internal class SwampSession: SwampTransportDelegate {
     private var lastReceivedPingTimeInterval: TimeInterval = Date().timeIntervalSince1970 // 上次收到 ping 的时间戳
     private let receivedPingTimeout: TimeInterval = 30.0
     private let reachabilityManager = NetworkReachabilityManager()
-    private var connectingDelayInterval = 0
     private var previousReachabilityStatus: NetworkReachabilityManager.NetworkReachabilityStatus = .unknown
+    private var retryCount: UInt = 0
+    
+    // 处理所有内部回调以及状态更新
+    private let underlyingQueue: DispatchQueue
     
     private var enterForegroundObserver: NSObjectProtocol?
     private var enterBackgroundObserver: NSObjectProtocol?
@@ -87,7 +89,7 @@ final internal class SwampSession: SwampTransportDelegate {
     var sessionState: SessionState = .disconnected
     
     // MARK: C'tor
-    required init(realm: String, transport: SwampTransport, authmethods: [String]?=nil, authid: String?=nil, authrole: String?=nil, authextra: [String: Any]?=nil){
+    required init(realm: String, transport: SwampTransport, authmethods: [String]?=nil, authid: String?=nil, authrole: String?=nil, authextra: [String: Any]?=nil, underlyingQueue: DispatchQueue){
         self.realm = realm
         self.transport = transport
         self.authmethods = authmethods
@@ -95,6 +97,7 @@ final internal class SwampSession: SwampTransportDelegate {
         self.authrole = authrole
         self.authextra = authextra
         self.requestIdLock = NSLock()
+        self.underlyingQueue = underlyingQueue
         self.transport.delegate = self
         
         // app 状态及网络状态
@@ -126,7 +129,7 @@ extension SwampSession {
     private func sessionStateObserving() {
         
         let operationQueue = OperationQueue()
-        operationQueue.underlyingQueue = serialQueue
+        operationQueue.underlyingQueue = underlyingQueue
         self.enterBackgroundObserver = NotificationCenter.default.addObserver(
             forName: UIApplication.didEnterBackgroundNotification,
             object: nil,
@@ -143,21 +146,19 @@ extension SwampSession {
             self?.applicationStateChanged(with: .foreground)
         }
         
-        self.reachabilityManager?.listenerQueue = serialQueue
-        self.reachabilityManager?.startListening()
-        self.reachabilityManager?.listener = { [weak self] newStatus in
+        self.reachabilityManager?.startListening(onQueue: underlyingQueue, onUpdatePerforming: { [weak self] (newStatus) in
             self?.networkReachabilityStatusChanged(with: newStatus)
-        }
+        })
+
     }
     
     private func applicationStateChanged(with appState: AppState) {
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
         
         switch appState {
         case .background:
-            resetConnectingDelayInterval()
             tryDisconnecting(reason: GOODBYE)
         case .foreground:
-            resetConnectingDelayInterval()
             let isActive = delegate?.swampSessionIsActive() ?? false
             if isActive {
                 tryConnecting()
@@ -168,16 +169,16 @@ extension SwampSession {
     private func networkReachabilityStatusChanged(
         with newStatus: NetworkReachabilityManager.NetworkReachabilityStatus)
     {
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
+        
         let oldStatus = self.previousReachabilityStatus
         self.previousReachabilityStatus = newStatus
         let isActive = delegate?.swampSessionIsActive() ?? false
         if oldStatus != .notReachable
             &&  newStatus == .notReachable {
-            resetConnectingDelayInterval()
             tryDisconnecting(reason: GOODBYE)
         } else if oldStatus != newStatus &&
             newStatus != .notReachable && isActive {
-            self.resetConnectingDelayInterval()
             self.tryConnecting()
         }
     }
@@ -188,17 +189,24 @@ extension SwampSession {
 
     // MARK: SwampTransportDelegate
     func swampTransportConnectFailed(_ error: NSError?, reason: String?) {
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
+        
         tryDisconnecting(reason: GOODBYE)
-        tryConnecting()
+        if shouldRetry(error: error) {
+            tryConnecting()
+        }
     }
     
     func swampTransportReceivedPing() {
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
+        
         lastReceivedPingTimeInterval = Date().timeIntervalSince1970
     }
     
     func swampTransportConnected() {
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
+        self.retryCount = 0
         sessionState = .connected
-        resetConnectingDelayInterval()
         DispatchQueue.main.sync {
             self.setupHeartBeat()
         }
@@ -217,7 +225,9 @@ extension SwampSession {
             
             if shouldReceivePingNow && isReachable {
                 // 已超时，且网络正常，发起重连
-                self.tryConnecting()
+                self.underlyingQueue.async {
+                    self.tryConnecting()
+                }
             }
         })
         
@@ -225,20 +235,29 @@ extension SwampSession {
         heartBeat?.fire()
     }
     
+    func shouldRetry(error: NSError?) -> Bool {
+        if ((error as? HTTPUpgradeError) != nil) {
+            return false
+        }
+        return true
+    }
+    
     // 尝试连接
     func tryConnecting() {
-        serialQueue.async {
-            guard self.sessionState != .connecting else {
-                return
-            }
-
-            self.sessionState = .connecting
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(self.connectingDelayInterval)) {
-                self.transport.connect()
-            }
-            
-            self.connectingDelayInterval = (self.connectingDelayInterval < 300) ? (15 + self.connectingDelayInterval) : 300
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
+        
+        guard self.sessionState != .connecting else {
+            return
         }
+        self.sessionState = .connecting
+        self.transport.connect()
+        
+        underlyingQueue.asyncAfter(deadline: .now() + BaaSWebSocketConfiguration.connectionTimeOut, execute: { [weak self] in
+            guard let self = self else { return }
+            if self.sessionState != .connected {
+                self.connectingTimeOut()
+            }
+        })
     }
     
     // 取消连接
@@ -249,8 +268,21 @@ extension SwampSession {
         self.heartBeat = nil
     }
     
-    private func resetConnectingDelayInterval() {
-        self.connectingDelayInterval = 1
+    // 超时重连
+    func connectingTimeOut() {
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
+        
+        self.sessionState = .disconnected
+        let delay = BaaSWebSocketConfiguration.retryPolicy.retry(retryCount: retryCount)
+        if delay > 0 {
+            underlyingQueue.asyncAfter(deadline: .now() + delay) {
+                self.tryConnecting()
+                self.retryCount += 1
+            }
+        } else {
+            self.retryCount = 0
+            delegate?.swampSessionFailed(CONNECTIONT_IMEOUT)
+        }
     }
 }
 
@@ -340,6 +372,8 @@ extension SwampSession {
     }
 
     func swampTransportReceivedData(_ data: Data) {
+        dispatchPrecondition(condition: .onQueue(underlyingQueue))
+        
         if let payload = self.serializer?.unpack(data), let message = SwampMessages.createMessage(payload) {
             self.handleMessage(message)
         }

@@ -15,6 +15,12 @@ struct FileOperationView: View {
     var body: some View {
         VStack(alignment: .leading, spacing: 5) {
             
+            MinButton(title: "上传大文件(名称：bigfile.zip)") {
+                FileCase.uploadBigFile {
+                    self.valid = true
+                }
+            }
+            
             MinButton(title: "上传文件+路径") {
                 FileCase.uploadFile {
                     self.valid = true

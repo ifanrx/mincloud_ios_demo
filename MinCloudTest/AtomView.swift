@@ -8,14 +8,15 @@
 
 import SwiftUI
 
-struct AtomView: View {
+struct IntegerAtomView: View {
     @Binding var valid: Bool
     
     var body: some View {
+        
         VStack(alignment: .leading, spacing: 5) {
             Text("原子操作 integer")
                 .padding(.top, 24)
-            MinButton(title: "更新 integer = 5", background: Color.clear) {
+            MinButton(title: "更新 integer = 5(expand pointer/触发)", background: Color.clear) {
                 EditCase.atomUpdate()
             }
             .background(valid ? Color.green : Color.gray)
@@ -32,7 +33,16 @@ struct AtomView: View {
             }
             .background(valid ? Color.green : Color.gray)
             .disabled(!valid)
-            
+        }
+    }
+}
+
+struct ArrayAtomView: View {
+    @Binding var valid: Bool
+    
+    var body: some View {
+        
+        VStack(alignment: .leading, spacing: 5) {
             Text("数组原子操作 arrayInt = [1, 2, 3]")
                 .padding(.top, 24)
             MinButton(title: "删除 1", background: Color.clear) {
@@ -58,6 +68,48 @@ struct AtomView: View {
             }
             .background(valid ? Color.green : Color.gray)
             .disabled(!valid)
+            
+            MinButton(title: "删除最后一个元素", background: Color.clear) {
+                EditCase.atomArrayPop()
+            }
+            .background(valid ? Color.green : Color.gray)
+            .disabled(!valid)
+            
+            MinButton(title: "删除第一个元素", background: Color.clear) {
+                EditCase.atomArrayShift()
+            }
+            .background(valid ? Color.green : Color.gray)
+            .disabled(!valid)
+        }
+    }
+}
+
+struct ObjectAtomView: View {
+    @Binding var valid: Bool
+    
+    var body: some View {
+        
+        VStack(alignment: .leading, spacing: 5) {
+            Text("原子操作 Object")
+                .padding(.top, 24)
+            MinButton(title: "object.key1 incrementBy 3", background: Color.clear) {
+                EditCase.atomObjectincrementBy()
+            }
+            .background(valid ? Color.green : Color.gray)
+            .disabled(!valid)
+        }
+    }
+}
+
+struct AtomView: View {
+    @Binding var valid: Bool
+    
+    var body: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            
+            IntegerAtomView(valid: $valid)
+            ArrayAtomView(valid: $valid)
+            ObjectAtomView(valid: $valid)
         }
     }
 }

@@ -15,7 +15,20 @@ struct FileCase {
     
     static func uploadFile(handler: @escaping () -> Void) {
         let filePath = Bundle.main.path(forResource: "meitu", ofType: "jpg")
-        FileManager.upload(filename: "ifanr", localPath: filePath!, categoryName: "ios_category",
+        FileManager().upload(filename: "ifanr", localPath: filePath!, categoryName: "ios_category",
+                           progressBlock: { progress in print("\(String(describing: progress?.fractionCompleted))") },
+                           completion: {file, error in
+                            self.file = file
+                            setResult(file, error: error)
+                            if error == nil {
+                                handler()
+                            }
+        })
+    }
+    
+    static func uploadBigFile(handler: @escaping () -> Void) {
+        let filePath = Bundle.main.path(forResource: "bigfile.zip", ofType: nil)
+        FileManager().upload(filename: "ifanr", localPath: filePath!, mimeType: "application/zip",
                            progressBlock: { progress in print("\(String(describing: progress?.fractionCompleted))") },
                            completion: {file, error in
                             self.file = file
@@ -28,7 +41,7 @@ struct FileCase {
     
     static func uploadFile_Data(handler: @escaping () -> Void) {
         let imageData = UIImage(named: "meitu")?.pngData()
-        FileManager.upload(filename: "ifanr", fileData: imageData!, mimeType: "image/png", categoryName: "ios_category",
+        FileManager().upload(filename: "ifanr", fileData: imageData!, mimeType: "image/png", categoryName: "ios_category",
                            progressBlock: { progress in print("\(String(describing: progress?.fractionCompleted))") },
                            completion: {file, error in
                             self.file = file
@@ -50,14 +63,14 @@ struct FileCase {
     }
     
     static func deleteFiles(files: [String]) {
-        FileManager.delete(files) { (success, error) in
+        FileManager().delete(files) { (success, error) in
             setResult(["result: \(success)"], error: error)
         }
     }
     
     static func getFile() {
         if let file = file {
-            FileManager.get(file.Id!) { (fileInfo, error) in
+            FileManager().get(file.Id!) { (fileInfo, error) in
                 setResult(fileInfo, error: error)
             }
         }
@@ -70,13 +83,13 @@ struct FileCase {
         let query = Query()
         query.limit = l
         query.offset = o
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
     
     static func getCategory() {
-        FileManager.getCategory("5d89b531619f0641755294b1") { (category, error) in
+        FileManager().getCategory("5d89b531619f0641755294b1") { (category, error) in
             setResult(category, error: error)
         }
     }
@@ -87,7 +100,7 @@ struct FileCase {
         let query = Query()
         query.limit = l
         query.offset = o
-        FileManager.getCategoryList(query: query) { (categoryList, error) in
+        FileManager().getCategoryList(query: query) { (categoryList, error) in
             setResult(categoryList, error: error)
         }
     }
@@ -95,7 +108,7 @@ struct FileCase {
     static func CategoryListTotalCount() {
         let query = Query()
         query.returnTotalCount = true
-        FileManager.getCategoryList(query: query) { (categoryList, error) in
+        FileManager().getCategoryList(query: query) { (categoryList, error) in
             setResult(categoryList, error: error)
         }
     }
@@ -106,7 +119,7 @@ struct FileCase {
         let query = Query()
         query.limit = l
         query.offset = o
-        FileManager.find(categoryId: "5d89b531619f0641755294b1", query: query) { (fileList, error) in
+        FileManager().find(categoryId: "5d89b531619f0641755294b1", query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -122,7 +135,7 @@ struct FileCase {
         let createdOrder = isAes ? "created_at" : "-created_at"
         query.orderBy = [createdOrder]
         query.select = ["created_at"]
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -136,7 +149,7 @@ struct FileCase {
         query.select = ["size"]
         let sizeOrder = isAes ? "size" : "-size"
         query.orderBy = [sizeOrder]
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -150,7 +163,7 @@ struct FileCase {
         let nameOrder = isAes ? "name" : "-name"
         query.orderBy = [nameOrder]
         query.select = ["name"]
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -160,7 +173,7 @@ struct FileCase {
         let whereArgs = Where.compare("id", operator: .equalTo, value: id)
         let query = Query()
         query.where = whereArgs
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -169,7 +182,7 @@ struct FileCase {
         let whereArgs = Where.compare("name", operator: op, value: "ifanr")
         let query = Query()
         query.where = whereArgs
-        FileManager.find(query: query) { (contentList, error) in
+        FileManager().find(query: query) { (contentList, error) in
             setResult(contentList, error: error)
         }
     }
@@ -178,7 +191,7 @@ struct FileCase {
         let whereArgs = Where.compare("size", operator: op, value: size)
         let query = Query()
         query.where = whereArgs
-        FileManager.find(query: query) { (contentList, error) in
+        FileManager().find(query: query) { (contentList, error) in
             setResult(contentList, error: error)
         }
     }
@@ -187,7 +200,7 @@ struct FileCase {
         let whereArgs = Where.compare("category_id", operator: .equalTo, value: id)
         let query = Query()
         query.where = whereArgs
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -196,7 +209,7 @@ struct FileCase {
         let whereArgs = Where.compare("created_at", operator: op, value: Date().timeIntervalSinceReferenceDate)
         let query = Query()
         query.where = whereArgs
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -204,7 +217,7 @@ struct FileCase {
     static func fileTotalCount() {
         let query = Query()
         query.returnTotalCount = true
-        FileManager.find(query: query) { (recordList, error) in
+        FileManager().find(query: query) { (recordList, error) in
             setResult(recordList, error: error)
         }
     }
@@ -214,7 +227,7 @@ struct FileCase {
         let whereArgs = Where.compare("category_name", operator: op, value: name)
         let query = Query()
         query.where = whereArgs
-        FileManager.find(query: query) { (fileList, error) in
+        FileManager().find(query: query) { (fileList, error) in
             setResult(fileList, error: error)
         }
     }
@@ -227,7 +240,7 @@ struct FileCase {
         query.offset = o
         let nameOrder = isAes ? "name" : "-name"
         query.orderBy = [nameOrder]
-        FileManager.find(query: query) { (contentList, error) in
+        FileManager().find(query: query) { (contentList, error) in
             setResult(contentList, error: error)
         }
     }
@@ -238,7 +251,7 @@ struct FileCase {
                                       "point": "00:00:10",
                                       "category_id": "5d89b531619f0641755294b1",
                                       "random_file_link": false]
-        FileManager.genVideoSnapshot(params) { (result, error) in
+        FileManager().genVideoSnapshot(params) { (result, error) in
             setResult(result, error: error)
         }
     }
@@ -248,7 +261,7 @@ struct FileCase {
                                      "save_as": "ios_concat.m3u8",
                                      "category_id": "5d89b531619f0641755294b1",
                                      "random_file_link": false]
-        FileManager.videoConcat(params) { (result, error) in
+        FileManager().videoConcat(params) { (result, error) in
             setResult(result, error: error)
         }
     }
@@ -259,19 +272,19 @@ struct FileCase {
                                     "save_as": "ios_0s_20s.m3u8",
                                     "category_id": "5d89b531619f0641755294b1",
                                     "random_file_link": false]
-        FileManager.videoClip(params) { (result, error) in
+        FileManager().videoClip(params) { (result, error) in
             setResult(result, error: error)
         }
     }
     
     static func videoMeta() {
-        FileManager.videoMeta("5c452bebfe10832bf97846c9") { (result, error) in
+        FileManager().videoMeta("5c452bebfe10832bf97846c9") { (result, error) in
             setResult(result, error: error)
         }
     }
     
     static func videoAudioMeta() {
-        FileManager.videoAudioMeta("5c452bd5fe10832af07846f1") { (result, error) in
+        FileManager().videoAudioMeta("5c452bd5fe10832af07846f1") { (result, error) in
             setResult(result, error: error)
         }
     }

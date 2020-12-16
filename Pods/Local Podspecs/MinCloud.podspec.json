@@ -30,7 +30,10 @@
       ],
       "dependencies": {
         "Moya": [
-          "~> 13.0"
+          "~> 14.0"
+        ],
+        "Alamofire": [
+          "~> 5.0"
         ],
         "Starscream": [
 

@@ -7,5 +7,4 @@ target 'MinCloudTest' do
 
   # Pods for MinCloudTest
   pod 'MinCloud', :git => 'https://github.com/ifanrx/hydrogen-ios-sdk.git', :branch => '2.0.0-b'
-  pod 'Moya', '~> 13.0'
 end

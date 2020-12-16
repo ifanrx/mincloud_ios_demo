@@ -8,12 +8,14 @@
 
 import Foundation
 import Moya
-import Result
 
 @objc(BaaSContentGroup)
 open class ContentGroup: NSObject {
     @objc public internal(set) var Id: String?
     @objc public internal(set) var name: String?
+    
+    // 处理外部回调
+    @objc public var callBackQueue: DispatchQueue = .main
     
     static var ContentGroupProvider = MoyaProvider<ContentGroupAPI>(plugins: logPlugin)
 
@@ -31,13 +33,13 @@ open class ContentGroup: NSObject {
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
-    @objc open func get(_ contentId: String, select: [String]? = nil, completion: @escaping ContentResultCompletion) -> RequestCanceller? {
+    @objc public func get(_ contentId: String, select: [String]? = nil, completion: @escaping ContentResultCompletion) -> RequestCanceller? {
 
         var parameters: [String: String] = [:]
         if let select = select {
             parameters["keys"] = select.joined(separator: ",")
         }
-        let request = ContentGroup.ContentGroupProvider.request(.conentDetail(id: contentId, parameters: parameters)) { result in
+        let request = ContentGroup.ContentGroupProvider.request(.conentDetail(id: contentId, parameters: parameters), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (content: Content?, error: NSError?) in
                 completion(content, error)
             })
@@ -54,11 +56,11 @@ open class ContentGroup: NSObject {
     /// - Parameter completion: 结果回调
     /// - Returns: 
     @discardableResult
-    @objc open func find(query: Query? = nil, completion: @escaping ContentListResultCompletion) -> RequestCanceller? {
+    @objc public func find(query: Query? = nil, completion: @escaping ContentListResultCompletion) -> RequestCanceller? {
 
         var queryArgs: [String: Any] = query?.queryArgs ?? [:]
         queryArgs["content_group_id"] = Id
-        let request = ContentGroup.ContentGroupProvider.request(.contentList(parameters: queryArgs)) { result in
+        let request = ContentGroup.ContentGroupProvider.request(.contentList(parameters: queryArgs), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (listResult: ContentList?, error: NSError?) in
                 completion(listResult, error)
             })
@@ -77,11 +79,11 @@ open class ContentGroup: NSObject {
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
-    @objc open func find(categoryId: String, query: Query? = nil, completion: @escaping ContentListResultCompletion) -> RequestCanceller? {
+    @objc public func find(categoryId: String, query: Query? = nil, completion: @escaping ContentListResultCompletion) -> RequestCanceller? {
 
         var queryArgs: [String: Any] = query?.queryArgs ?? [:]
         queryArgs["category_id"] = categoryId
-        let request = ContentGroup.ContentGroupProvider.request(.contentListInCategory(prameters: queryArgs)) { result in
+        let request = ContentGroup.ContentGroupProvider.request(.contentListInCategory(prameters: queryArgs), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (listResult: ContentList?, error: NSError?) in
                 completion(listResult, error)
             })
@@ -96,11 +98,11 @@ open class ContentGroup: NSObject {
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
-    @objc open func getCategoryList(query: Query? = nil, completion: @escaping ContentCategoryListResultCompletion) -> RequestCanceller? {
+    @objc public func getCategoryList(query: Query? = nil, completion: @escaping ContentCategoryListResultCompletion) -> RequestCanceller? {
 
         var queryArgs: [String: Any] = query?.queryArgs ?? [:]
         queryArgs["content_group_id"] = Id
-        let request = ContentGroup.ContentGroupProvider.request(.categoryList(parameters: queryArgs)) { result in
+        let request = ContentGroup.ContentGroupProvider.request(.categoryList(parameters: queryArgs), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (listResult: ContentCategoryList?, error: NSError?) in
                 completion(listResult, error)
             })
@@ -115,9 +117,9 @@ open class ContentGroup: NSObject {
     ///   - completion: 结果回调
     /// - Returns: 
     @discardableResult
-    @objc open func getCategory(_ Id: String, completion: @escaping ContentCategoryResultCompletion) -> RequestCanceller? {
+    @objc public func getCategory(_ Id: String, completion: @escaping ContentCategoryResultCompletion) -> RequestCanceller? {
 
-        let request = ContentGroup.ContentGroupProvider.request(.categoryDetail(id: Id)) { result in
+        let request = ContentGroup.ContentGroupProvider.request(.categoryDetail(id: Id), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (category: ContentCategory?, error: NSError?) in
                 completion(category, error)
             })

@@ -8,7 +8,6 @@
 
 import Foundation
 import Moya
-import Result
 
 @objc public class BaaS: NSObject {
     @objc public static func register(clientID: String, serverURLString: String? = nil) {
@@ -44,8 +43,8 @@ import Result
     ///   - completion: 执行结果
     /// - Returns:
     @discardableResult
-    @objc public static func invoke(name: String, data: Any, sync: Bool, completion: @escaping OBJECTResultCompletion) -> RequestCanceller {
-        let request = BaasProvider.request(.invokeFunction(parameters: ["function_name": name, "data": data, "sync": sync])) { result in
+    @objc public static func invoke(name: String, data: Any, sync: Bool, callBackQueue: DispatchQueue = .main, completion: @escaping OBJECTResultCompletion) -> RequestCanceller {
+        let request = BaasProvider.request(.invokeFunction(parameters: ["function_name": name, "data": data, "sync": sync]), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (invokeResult: MappableDictionary?, error: NSError?) in
                 completion(invokeResult?.value, error)
             })
@@ -60,8 +59,8 @@ import Result
     ///   - completion: 发送结果
     /// - Returns:
     @discardableResult
-    @objc public static func sendSmsCode(phone: String, completion: @escaping BOOLResultCompletion) -> RequestCanceller {
-        let request = BaasProvider.request(.sendSmsCode(parameters: ["phone": phone])) { result in
+    @objc public static func sendSmsCode(phone: String, callBackQueue: DispatchQueue = .main, completion: @escaping BOOLResultCompletion) -> RequestCanceller {
+        let request = BaasProvider.request(.sendSmsCode(parameters: ["phone": phone]), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (_: Bool?, error: NSError?) in
                 if error != nil {
                     completion(false, error)
@@ -81,8 +80,8 @@ import Result
     ///   - completion: 验证结果
     /// - Returns:
     @discardableResult
-    @objc public static func verifySmsCode(phone: String, code: String, completion: @escaping BOOLResultCompletion) -> RequestCanceller {
-        let request = BaasProvider.request(.verifySmsCode(parameters: ["phone": phone, "code": code])) { result in
+    @objc public static func verifySmsCode(phone: String, code: String, callBackQueue: DispatchQueue = .main, completion: @escaping BOOLResultCompletion) -> RequestCanceller {
+        let request = BaasProvider.request(.verifySmsCode(parameters: ["phone": phone, "code": code]), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (_: Bool?, error: NSError?) in
                 if error != nil {
                     completion(false, error)
@@ -100,8 +99,8 @@ import Result
     ///   - completion: 获取服务器时间结果
     /// - Returns:
     @discardableResult
-    @objc public static func getServerTime(_ completion: @escaping OBJECTResultCompletion) -> RequestCanceller {
-        let request = BaasProvider.request(.getServerTime) { result in
+    @objc public static func getServerTime(callBackQueue: DispatchQueue = .main, completion: @escaping OBJECTResultCompletion) -> RequestCanceller {
+        let request = BaasProvider.request(.getServerTime, callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (invokeResult: MappableDictionary?, error: NSError?) in
                 completion(invokeResult?.value, error)
             })

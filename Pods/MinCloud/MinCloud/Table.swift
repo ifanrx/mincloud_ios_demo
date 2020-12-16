@@ -8,15 +8,24 @@
 
 import UIKit
 import Moya
-import Result
+
+public typealias RecordOptionKey = String
+
+/// 数据表的记录在进行 save/update/delete 操作时，可以附带的选项。
+@objc(RecordOption)
+public class RecordOption: NSObject {
+    @objc public static let enableTrigger: RecordOptionKey = "enable_trigger" // 是否允许触发器触发
+}
 
 @objc(BaaSTable)
-public class Table: NSObject {
+open class Table: NSObject {
     public internal(set) var Id: String?
     public internal(set) var name: String?
     var identifier: String
     
     static var TableProvider = MoyaProvider<TableAPI>(plugins: logPlugin)
+    // 处理外部回调
+    @objc public var callBackQueue: DispatchQueue = .main
     
     @objc public init(tableId: String) {
         self.identifier = tableId
@@ -39,7 +48,8 @@ public class Table: NSObject {
     ///
     /// - Parameter recordId: 记录 Id
     /// - Returns:
-    @objc public func getWithoutData(recordId: String) -> Record {
+    @objc public func getWithoutData(recordId: String) -> Record? {
+        guard !recordId.isEmpty else { return nil }
         return Record(table: self, Id: recordId)
     }
 
@@ -47,23 +57,25 @@ public class Table: NSObject {
     ///
     /// - Parameters:
     ///   - records: 记录值
-    ///   - options: 选项,目前支持 enable_trigger: 是否触发触发器。可选
+    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器。可选
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
-    @objc public func createMany(_ records: [[String: Any]], options: [String: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
+    @objc public func createMany(_ records: [[String: Any]], options: [RecordOptionKey: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
 
         let newRecords = records.map { $0.jsonValue() }
         var jsonData: Data?
         do {
             jsonData = try JSONSerialization.data(withJSONObject: newRecords, options: .prettyPrinted)
         } catch let error {
-            completion(nil, HError.init(code: 400, description: error.localizedDescription) as NSError)
+            callBackQueue.async {
+                completion(nil, HError.init(code: 400, description: error.localizedDescription) as NSError)
+            }
             return nil
         }
 
         let args = options ?? [:]
-        let request = Table.TableProvider.request(.createRecords(tableId: identifier, recordData: jsonData!, parameters: args)) { result in
+        let request = Table.TableProvider.request(.createRecords(tableId: identifier, recordData: jsonData!, parameters: args), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (resultInfo: MappableDictionary?, error: NSError?) in
                 completion(resultInfo?.value, error)
             })
@@ -75,15 +87,15 @@ public class Table: NSObject {
     ///
     /// - Parameters:
     ///   - query: 查询条件，将会删除满足条件的记录。如果不设置条件，将删除该表的所有记录。可选
-    ///   - options: 选项,目前支持 enable_trigger: 是否触发触发器, 可选。
+    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器。可选
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
-    @objc public func delete(query: Query? = nil, options: [String: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
+    @objc public func delete(query: Query? = nil, options: [RecordOptionKey: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
 
         var queryArgs: [String: Any] = query?.queryArgs ?? [:]
         queryArgs.merge(options ?? [:])
-        let request = Table.TableProvider.request(.delete(tableId: identifier, parameters: queryArgs)) { result in
+        let request = Table.TableProvider.request(.delete(tableId: identifier, parameters: queryArgs), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (resultInfo: MappableDictionary?, error: NSError?) in
                 completion(resultInfo?.value, error)
             })
@@ -109,7 +121,7 @@ public class Table: NSObject {
         if let expand = expand {
             parameters["expand"] = expand.joined(separator: ",")
         }
-        let request = Table.TableProvider.request(.get(tableId: identifier, recordId: recordId, parameters: parameters)) { result in
+        let request = Table.TableProvider.request(.get(tableId: identifier, recordId: recordId, parameters: parameters), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (record: Record?, error: NSError?) in
                 record?.table = self
                 completion(record, error)
@@ -126,15 +138,15 @@ public class Table: NSObject {
     /// - Parameters:
     ///   - record: 需要更新的记录值
     ///   - query: 查询条件，满足条件的记录将被更新
-    ///   - options: 选项,目前支持 enable_trigger: 是否触发触发器, 可选。
+    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器。可选
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
-    @objc public func update(record: Record, query: Query? = nil, options: [String: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
+    @objc public func update(record: Record, query: Query? = nil, options: [RecordOptionKey: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
 
         var queryArgs: [String: Any] = query?.queryArgs ?? [:]
         queryArgs.merge(options ?? [:])
-        let request = Table.TableProvider.request(.update(tableId: identifier, urlParameters: queryArgs, bodyParameters: record.recordParameter.jsonValue())) { result in
+        let request = Table.TableProvider.request(.update(tableId: identifier, urlParameters: queryArgs, bodyParameters: record.recordParameter.jsonValue()), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (resultInfo: MappableDictionary?, error: NSError?) in
                 completion(resultInfo?.value, error)
             })
@@ -152,7 +164,7 @@ public class Table: NSObject {
     @objc public func find(query: Query? = nil, completion: @escaping RecordListResultCompletion) -> RequestCanceller? {
 
         let queryArgs: [String: Any] = query?.queryArgs ?? [:]
-        let request = Table.TableProvider.request(.find(tableId: identifier, parameters: queryArgs)) { result in
+        let request = Table.TableProvider.request(.find(tableId: identifier, parameters: queryArgs), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (listResult: RecordList?, error: NSError?) in
                 listResult?.records?.forEach({ (record) in
                     record.table = self
@@ -179,9 +191,11 @@ public class Table: NSObject {
                           onEvent: @escaping EventCallback) {
         
         guard Auth.hadLogin else {
-            let error = HError.init(code: 401, description: "please login in")
+            let error = HError.init(code: 604, description: "please login in")
             printErrorInfo(error)
-            onError(error as NSError)
+            callBackQueue.async {
+                onError(error as NSError)
+            }
             return
         }
 

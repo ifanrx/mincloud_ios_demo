@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		4C30287E2338C2DB005F1CCF /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C30287D2338C2DB005F1CCF /* Utils.swift */; };
 		4C302884233A0490005F1CCF /* VideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C302883233A0490005F1CCF /* VideoView.swift */; };
+		4C33596C258881E9009321C3 /* bigfile.zip in Resources */ = {isa = PBXBuildFile; fileRef = 4C33596B258881E9009321C3 /* bigfile.zip */; };
 		4C828C2323D01A2B009C0E1D /* ThirdAuthView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C828C2223D01A2B009C0E1D /* ThirdAuthView.swift */; };
 		4C841C3D2320A56A00B16D15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C841C3C2320A56A00B16D15 /* AppDelegate.swift */; };
 		4C841C3F2320A56A00B16D15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C841C3E2320A56A00B16D15 /* SceneDelegate.swift */; };
@@ -79,6 +80,7 @@
 		4C30287D2338C2DB005F1CCF /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		4C302883233A0490005F1CCF /* VideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoView.swift; sourceTree = "<group>"; };
 		4C322B0E24224E9A00B9F40E /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4C33596B258881E9009321C3 /* bigfile.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = bigfile.zip; sourceTree = "<group>"; };
 		4C828C2223D01A2B009C0E1D /* ThirdAuthView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThirdAuthView.swift; sourceTree = "<group>"; };
 		4C841C392320A56A00B16D15 /* MinCloudTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MinCloudTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4C841C3C2320A56A00B16D15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		4C841C3B2320A56A00B16D15 /* MinCloudTest */ = {
 			isa = PBXGroup;
 			children = (
+				4C33596B258881E9009321C3 /* bigfile.zip */,
 				4C2AA05D24AA53D500C3EB03 /* MinCloudTest.entitlements */,
 				4CAA332B2328F453009BD947 /* BaaS */,
 				4CBD690723220A3800C064A1 /* Base */,
@@ -460,6 +463,7 @@
 			files = (
 				4CAA33152328A95C009BD947 /* meitu.jpg in Resources */,
 				4C841C492320A56F00B16D15 /* LaunchScreen.storyboard in Resources */,
+				4C33596C258881E9009321C3 /* bigfile.zip in Resources */,
 				4C841C462320A56F00B16D15 /* Preview Assets.xcassets in Resources */,
 				4CAA33132328A76C009BD947 /* ifanr.png in Resources */,
 				4C841C432320A56F00B16D15 /* Assets.xcassets in Resources */,

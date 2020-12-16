@@ -18,7 +18,7 @@ struct PointerCase {
         let userTable = Table(name: "_userprofile")
         let user = userTable.getWithoutData(recordId: id)
         record?.set("pointer", value: user)
-        record?.save({ (result, error) in
+        record?.save(completion: { (result, error) in
             setResult(record, error: error)
         })
     }

@@ -16,7 +16,7 @@ struct SchemaEidtView: View {
             VStack(alignment: .leading, spacing: 5) {
                 Text("请先创建一条记录，再进行下一步操作")
                     .foregroundColor(Color.red)
-                MinButton(title: "添加记录(整体 set)") {
+                MinButton(title: "添加记录(整体 set), expand pointer/触发") {
                     EditCase.createRecordSetAll {
                         self.valid = true
                     }
@@ -28,7 +28,7 @@ struct SchemaEidtView: View {
                     }
                 }
 
-                MinButton(title: "删除记录", background: Color.clear) {
+                MinButton(title: "删除记录(触发)", background: Color.clear) {
                     EditCase.deleteRecord {
                         self.valid = false
                     }

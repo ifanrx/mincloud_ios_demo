@@ -56,12 +56,14 @@ struct EditCase {
         }
         
         record?.set(recordDict)
-        record?.save { (result, error) in
+        let query = Query()
+        query.expand = ["pointer"]
+        record?.save(query: query, options: [RecordOption.enableTrigger: true], completion: { (result, error) in
             setResult(record, error: error)
             if error == nil {
                 handler()
             }
-        }
+        })
     }
     
     // 逐个属性设置
@@ -112,7 +114,7 @@ struct EditCase {
     
     // 删除记录
     static func deleteRecord(handler:@escaping () -> Void) {
-        record?.delete(completion: { (result, error) in
+        record?.delete(options: [RecordOption.enableTrigger: true], completion: { (result, error) in
             setResult(["result": result], error: error)
             if error == nil {
                 record = nil
@@ -121,7 +123,7 @@ struct EditCase {
             
         })
     }
-    
+        
     // 更新 point
     static func updatePoint() {
         let point = GeoPoint(longitude: 113, latitude: 23)
@@ -146,7 +148,7 @@ struct EditCase {
         let userTable = Table(name: "_userprofile")
         let user = userTable.getWithoutData(recordId: id)
         record?.set("pointer", value: user)
-        record?.update({ (result, error) in
+        record?.update(completion: { (result, error) in
             setResult(record, error: error)
         })
     }
@@ -170,6 +172,16 @@ struct EditCase {
     // 更新
     static func atomUpdate() {
         record?.set("integer", value: 5)
+        let query = Query()
+        query.expand = ["pointer"]
+        record?.update(query: query, options: [RecordOption.enableTrigger: true], completion: { (result, error) in
+            setResult(record, error: error)
+        })
+    }
+    
+    // 更新
+    static func atomObjectincrementBy() {
+        record?.incrementBy("object.key1", value: 3)
         record?.update { (result, error) in
             setResult(record, error: error)
         }
@@ -208,6 +220,22 @@ struct EditCase {
         }
     }
     
+    // 删除最后一个元素
+    static func atomArrayPop() {
+        record?.pop("arrayInt")
+        record?.update { (result, error) in
+            setResult(record, error: error)
+        }
+    }
+    
+    // 删除第一个元素
+    static func atomArrayShift() {
+        record?.shift("arrayInt")
+        record?.update { (result, error) in
+            setResult(record, error: error)
+        }
+    }
+    
     // 更新 Obj
     static func updateObj() {
         record?.set("object", value: ["new_key1": 1, "new_key2": 2])
@@ -217,9 +245,9 @@ struct EditCase {
     }
     
     static func updateFile() {
-        FileManager.get("5d89799b55c8576939df94eb") { (file, error) in
+        FileManager().get("5d89799b55c8576939df94eb") { (file, error) in
             record?.set("file", value: file!)
-            record?.update({ (success, error) in
+            record?.update(completion:  { (success, error) in
                 setResult(record, error: error)
             })
         }
@@ -244,7 +272,7 @@ struct EditCase {
     
     static func object_unset() {
         record?.unset("object_unset")
-        record?.update({ (result, error) in
+        record?.update(completion: { (result, error) in
             setResult(record, error: error)
         })
     }
