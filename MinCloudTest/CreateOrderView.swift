@@ -21,7 +21,7 @@ struct CreateOrderView: View {
             TextField("输入 merchandise_record_id", text: $merchandiseRecordId).textFieldStyle(RoundedBorderTextFieldStyle())
             TextField("输入 merchandise_schema_id", text: $merchandiseSchemaId).textFieldStyle(RoundedBorderTextFieldStyle())
             HStack {
-                
+                 
                 MinButton(title: "微信(分账）", width: width) {
                     PaymentCase.wxPay(schemaID: self.merchandiseSchemaId, recordID: self.merchandiseRecordId, profitSharing: true)
                 }
