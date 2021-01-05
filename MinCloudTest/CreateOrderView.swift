@@ -29,10 +29,9 @@ struct CreateOrderView: View {
                 MinButton(title: "微信(不分账）", width: width) {
                     PaymentCase.wxPay(schemaID: self.merchandiseSchemaId, recordID: self.merchandiseRecordId, profitSharing: false)
                 }
-                
-                MinButton(title: "支付宝", width: width) {
-                    PaymentCase.aliPay()
-                }
+            }
+            MinButton(title: "支付宝") {
+                PaymentCase.aliPay()
             }
         }
     }
