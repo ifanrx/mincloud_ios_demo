@@ -10,6 +10,7 @@
 		013BAC24F7AC722E59517CB110A9E685 /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 317E7805D79A7D55C3CDD13D776AFE45 /* HTTPMethod.swift */; };
 		02775945C3BDC3A553BF050AA23CF406 /* Pods-MinCloudTest-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = E16FF77ED6A0A96AA6B00B2B3A37C06D /* Pods-MinCloudTest-dummy.m */; };
 		03064FE4521CDDE32F12D9275E203769 /* SwampContants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787EF827A88D85C60B7828F819E25106 /* SwampContants.swift */; };
+		035798E9DD79ECF3832B70CBF15BAAC6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC44BC108255F6766BF5383BF088F46 /* Foundation.framework */; };
 		070F6B6354F3FCA668675076B3150119 /* PayAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC29D6F65157D591729129DE88E65B54 /* PayAPI.swift */; };
 		08AA9A0F771E396E4B88137809B61763 /* File.swift in Sources */ = {isa = PBXBuildFile; fileRef = 997C6E735D192A58306B1DC0A17BD470 /* File.swift */; };
 		0A1849775CF90D514963187D3A771CF8 /* Combine.swift in Sources */ = {isa = PBXBuildFile; fileRef = CD1EE3AE217C116E8CFEF971E98150FA /* Combine.swift */; };
@@ -56,9 +57,11 @@
 		41C9A8830CD3617387AADD499B9159F9 /* SwampSession.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649AE450844F556E0461F36286725B76 /* SwampSession.swift */; };
 		41F7E257F5EA42565715B12137DC0DB9 /* Compression.swift in Sources */ = {isa = PBXBuildFile; fileRef = B53BC1EF44BB53C87C7EB4F43D18D96B /* Compression.swift */; };
 		422DDC9D75E0722E9D1CC868201945D5 /* NetworkLoggerPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D46A83BD4BCC82F7CE3FD5A4B1CF32B /* NetworkLoggerPlugin.swift */; };
+		436C7632FF744FE1BD0ECA70492E1781 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC44BC108255F6766BF5383BF088F46 /* Foundation.framework */; };
 		45B3D38876E9AACFAC9BE3CB1C4362D3 /* Image.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1F4D559B144987ADEA5177646B118A3 /* Image.swift */; };
 		45B8CC1C61E7A0BB28CFA8CE7C12FEBC /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84258C9E5B39D4759E4D5125B67FC572 /* MultipartFormData.swift */; };
 		4734D49458D05C5897E9F506DBD126CA /* WSCompression.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52F17BE9D1FD2704C2BE70D76170B7F6 /* WSCompression.swift */; };
+		476D5F33E25386C60D6BD75C4FA97C67 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC44BC108255F6766BF5383BF088F46 /* Foundation.framework */; };
 		477E0D111C449C4FB654C3F5E0A8C407 /* YieldSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0852ED5F1E9603B467B5D6C4A7B868E /* YieldSwampMessage.swift */; };
 		47E18F5D183CB95D7965718EA4412CBF /* Auth.swift in Sources */ = {isa = PBXBuildFile; fileRef = B923601A6BEDDCB0EB881B52C2E59295 /* Auth.swift */; };
 		47FDBBBD2704901588C3A7C56BBC502D /* ServerTrustEvaluation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7716BBD46F4FACA04DD8745059B56151 /* ServerTrustEvaluation.swift */; };
@@ -109,7 +112,6 @@
 		911448B2EDA2FF880108F77642797A88 /* ResponseSerialization.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D9F74AACF6DB033B2D304F9713177B4 /* ResponseSerialization.swift */; };
 		91B837CE0DCD8EDB300FCDFFA1279162 /* HTTPHeaders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A42C38A638E54033380FB63C4B7237 /* HTTPHeaders.swift */; };
 		938DE1E2DE62A67570B4796E5EB731D0 /* Where.swift in Sources */ = {isa = PBXBuildFile; fileRef = 06871062B2A4F0A5CB151E3F2B42FAB7 /* Where.swift */; };
-		957F138A7A6A69F27EF63B6F4F05005D /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F401E181BEA002337E464DED414F440 /* Foundation.framework */; };
 		95A2C49F95FCE6DFBC44D31BB07B6777 /* ResultSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C6029D5A2B951F4FD5F44E04006B3EF /* ResultSwampMessage.swift */; };
 		95B07FD90782AB0CEBDDEDE649E2B0DF /* MultipartFormData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02015E83A9ED17882C0506B8F9AD1AE7 /* MultipartFormData.swift */; };
 		95BC7D108210D1CDF24A83A092B8CF02 /* MultiTarget.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB16CD73CF56E4FC19BAE7BBB6AC275 /* MultiTarget.swift */; };
@@ -120,13 +122,14 @@
 		9B4EF6681CB7351AA6B01141062AD4C4 /* SwampCraAuthHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94CCC98A80AD278CF7B739C14B987C86 /* SwampCraAuthHelper.swift */; };
 		9CF7ABA35B6E03346919BB56AF9FF739 /* CallSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1B899327D6347085DD7ED019A6662CBF /* CallSwampMessage.swift */; };
 		9FED70D1E1FBFB80E974E999EF732258 /* RetryPolicy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E862A20692197F306498EFB8265B8D58 /* RetryPolicy.swift */; };
-		A738C2A39C0150BBA7EA5EC19B95F03E /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32BD7B93FEA70BDFD057550D07FA7961 /* CFNetwork.framework */; };
 		A8852DC5831D21357840E6C4D81BBEAA /* SubscribeSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = D85D44666393188A105D289CBF6C75DF /* SubscribeSwampMessage.swift */; };
 		A8ED201D3A4E7E0EA1ECAAE25C7012C1 /* Record.swift in Sources */ = {isa = PBXBuildFile; fileRef = E0B4466C2BACF62DEA7748E035863A6F /* Record.swift */; };
 		A8FD7CC6921B2D435445FB9C4F255B37 /* FoundationSecurity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6818494A988EDD77AC6FCDC387B27126 /* FoundationSecurity.swift */; };
+		A9C7B29D4878F1690BBE3F8195CF0313 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C1615E1FA68C09F9971FB26DF9B7D2BC /* CFNetwork.framework */; };
 		ABA85887A41495358C83CE3F3030EDEA /* CachedResponseHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CD105B5E23A150A8B5728F6EE27A858 /* CachedResponseHandler.swift */; };
 		AE04B74B8E20011207CF95623B2811CE /* BaseRecord.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA5F5ED18086A71B744745AF0E3A180F /* BaseRecord.swift */; };
 		AEC77519B70FC37FCE530218E5D83B8C /* HTTPHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38AD061FD5BE2C0214EE0B870E354ACF /* HTTPHandler.swift */; };
+		AECC24035AE2DEF02C615172832ABF50 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC44BC108255F6766BF5383BF088F46 /* Foundation.framework */; };
 		AF787D6BB6F4C1ACD0FE3CDEA478E1E0 /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9B0875B5D34B1EA96E93FE046ECFF39 /* Task.swift */; };
 		AF86266CFC4D648063F8EA44F8F2AF2D /* HelloSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B800881E37B22349F70045B61B91137 /* HelloSwampMessage.swift */; };
 		B1E626B66FA37F45AC19B60578165C77 /* WXApiObject.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F75347BDB4A6B591DF76A467C9502BA /* WXApiObject.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -148,6 +151,7 @@
 		CA119ABC3DEEE242709A527902EB2BE7 /* Cancellable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41389FCC180B002133292C06F1C53409 /* Cancellable.swift */; };
 		CA2C5922165ACA220717175F7A9820F5 /* Starscream-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = DD5F28096F8D7DFF11BF0D0833676ED1 /* Starscream-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CB6B28A0FC7E7625AB0D78CA81CCE7FB /* ConnectionRetrier.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA37987CFB242B30177695DE9C269440 /* ConnectionRetrier.swift */; };
+		CBFFE469B78BEFDD2BAB1C744C5D5B10 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AC44BC108255F6766BF5383BF088F46 /* Foundation.framework */; };
 		CC59AB5B9B989649803C2C4035CD8E47 /* WelcomeSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B19C3FD44E990F1DF76D705A85D584C2 /* WelcomeSwampMessage.swift */; };
 		CC8184938258CDB6FE56B8759CFA0008 /* AccessTokenPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB4934F69123AB33D426984FF62E5E /* AccessTokenPlugin.swift */; };
 		CCA9F4CE3162F9F8AA329E9B0D2F6562 /* AbortSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 49C8F6B637D7F23D7699C071145B229A /* AbortSwampMessage.swift */; };
@@ -163,10 +167,8 @@
 		DEA360F0C157752E4BD12E1F3A996A3B /* ContentGroupAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D8C221E964CE0FD5E0443715D4BB86C /* ContentGroupAPI.swift */; };
 		DFBA67BCBE56952EA9E3931F5342240F /* TargetType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AA7FD3A1696ED843268C2739BD9E71 /* TargetType.swift */; };
 		E3A7AE6132FFC5AFE39A5447ECBA80FB /* RegisteredSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = E588EB08ED98E977BBB1F8C01141F8DB /* RegisteredSwampMessage.swift */; };
-		E7298C3FBB98D8912A8572FC3F60628B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F401E181BEA002337E464DED414F440 /* Foundation.framework */; };
 		E777743BC037B964A42FEDBBC8A17028 /* PublishSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F6320AAF1890A66B34623C4F8752B17 /* PublishSwampMessage.swift */; };
 		E7F85306F59598B3DB4532E349546798 /* MoyaProvider+Internal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9277C46D27BA80715F6A7FD82433B41A /* MoyaProvider+Internal.swift */; };
-		E8E281159D25F748F79A4B19B28EB5D5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F401E181BEA002337E464DED414F440 /* Foundation.framework */; };
 		EDC93BD7B9262119AE145E4C7A9D0212 /* Request.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A8C3CBF921C349076BF7003314E7F4C /* Request.swift */; };
 		EF66419B27A4698C23F6F88BC7E1DE83 /* ErrorSwampMessage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6F0322B37269A3737B0C9B2B3EE37B12 /* ErrorSwampMessage.swift */; };
 		EFD0DD25DB0E0602EE6B503F8F0878A1 /* MoyaProvider+Defaults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE87061EDC65FA32B14FCE8950926A60 /* MoyaProvider+Defaults.swift */; };
@@ -174,8 +176,6 @@
 		F10DF10665A3CF53A017E49A81DE250F /* WSEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 549D5793AB4EAD68A667692BF369BA28 /* WSEngine.swift */; };
 		F26ED9950B2C66C868DB77921A90E268 /* ValidationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1F604CD362B215F77B69C783B73FB89 /* ValidationType.swift */; };
 		F4E42AE475D9617A60303148C24E3DE6 /* NativeEngine.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1EFA07DD99209CB32A188D1E063E2FD7 /* NativeEngine.swift */; };
-		F5B7BF61E0177028DD010C80374D37AA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F401E181BEA002337E464DED414F440 /* Foundation.framework */; };
-		F6B16DC8CADA07287C6A372AC8AD787C /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3F401E181BEA002337E464DED414F440 /* Foundation.framework */; };
 		F70EF854395CDE981A8336E4FF0310FE /* URLSessionConfiguration+Alamofire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0AFF48EE053150206863E6766A79D5DE /* URLSessionConfiguration+Alamofire.swift */; };
 		F7BF7A6D1F3A5A4C8B3E3E1E7E6C13DB /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECA8B9D43B8E43630D14754349881B39 /* Server.swift */; };
 		F8C9A5A951194174499E0B6B6D7DB7B8 /* ContentCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D6EE1A4D6F0CB2E8559E193068C3F01 /* ContentCategory.swift */; };
@@ -266,6 +266,7 @@
 		13A9A9E5067646562D723A9CF6F4B0F2 /* libWeiboSDK.a */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = archive.ar; name = libWeiboSDK.a; path = MinCloud/libWeiboSDK.a; sourceTree = "<group>"; };
 		198E37F48B73756AB90F4ACB924A669E /* SwampError.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwampError.swift; path = MinCloud/Swamp/SwampError.swift; sourceTree = "<group>"; };
 		1A21603635DF50E579F6B8D5E8E75CAB /* TableRecordAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableRecordAPI.swift; path = MinCloud/TableRecordAPI.swift; sourceTree = "<group>"; };
+		1AC44BC108255F6766BF5383BF088F46 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1B899327D6347085DD7ED019A6662CBF /* CallSwampMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CallSwampMessage.swift; path = MinCloud/Swamp/CallSwampMessage.swift; sourceTree = "<group>"; };
 		1CDD5AA41BE89CD0394D01066F763D1C /* SwampMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SwampMessage.swift; path = MinCloud/Swamp/SwampMessage.swift; sourceTree = "<group>"; };
 		1EFA07DD99209CB32A188D1E063E2FD7 /* NativeEngine.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NativeEngine.swift; path = Sources/Engine/NativeEngine.swift; sourceTree = "<group>"; };
@@ -283,7 +284,6 @@
 		2FFB4934F69123AB33D426984FF62E5E /* AccessTokenPlugin.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AccessTokenPlugin.swift; path = Sources/Moya/Plugins/AccessTokenPlugin.swift; sourceTree = "<group>"; };
 		317E7805D79A7D55C3CDD13D776AFE45 /* HTTPMethod.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = HTTPMethod.swift; path = Source/HTTPMethod.swift; sourceTree = "<group>"; };
 		326C32A15E0E60015C5D5FC5F18BD398 /* DispatchQueue+Alamofire.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "DispatchQueue+Alamofire.swift"; path = "Source/DispatchQueue+Alamofire.swift"; sourceTree = "<group>"; };
-		32BD7B93FEA70BDFD057550D07FA7961 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		35EEBC2545277D489C4968DB0CD6526F /* MinCloud.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = MinCloud.release.xcconfig; sourceTree = "<group>"; };
 		3632153F837D0955E4D0BE34CCC9B97F /* Moya.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = Moya.modulemap; sourceTree = "<group>"; };
 		371BAAF7A072429DC97291BD0550E400 /* Starscream-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Starscream-prefix.pch"; sourceTree = "<group>"; };
@@ -296,7 +296,6 @@
 		3C9FE847E2A75F247ABC716534D8ED2F /* Storage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Storage.swift; path = MinCloud/Storage.swift; sourceTree = "<group>"; };
 		3D8C221E964CE0FD5E0443715D4BB86C /* ContentGroupAPI.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ContentGroupAPI.swift; path = MinCloud/ContentGroupAPI.swift; sourceTree = "<group>"; };
 		3EF126DD7FF20A57C8EBED88667BC3FF /* WXApi.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = WXApi.h; path = MinCloud/WXApi.h; sourceTree = "<group>"; };
-		3F401E181BEA002337E464DED414F440 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.2.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		40EC9FCB32D2D4D83D39184CA187E590 /* FrameCollector.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = FrameCollector.swift; path = Sources/Framer/FrameCollector.swift; sourceTree = "<group>"; };
 		41389FCC180B002133292C06F1C53409 /* Cancellable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Cancellable.swift; path = Sources/Moya/Cancellable.swift; sourceTree = "<group>"; };
 		42EBD76C5E430A97FC458523BEC066CE /* StringHTTPHandler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = StringHTTPHandler.swift; path = Sources/Framer/StringHTTPHandler.swift; sourceTree = "<group>"; };
@@ -405,6 +404,7 @@
 		BB165CD7F89BEC29ABAB96BE79428FFC /* AuthenticationInterceptor.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AuthenticationInterceptor.swift; path = Source/AuthenticationInterceptor.swift; sourceTree = "<group>"; };
 		BD34AC8A9F8AFD92823E6F194B9CC373 /* Alamofire.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Alamofire.debug.xcconfig; sourceTree = "<group>"; };
 		BF9E90CFDFCAA2553DAA0B5908D4F802 /* WebSocket.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = WebSocket.swift; path = Sources/Starscream/WebSocket.swift; sourceTree = "<group>"; };
+		C1615E1FA68C09F9971FB26DF9B7D2BC /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS14.0.sdk/System/Library/Frameworks/CFNetwork.framework; sourceTree = DEVELOPER_DIR; };
 		C3E61380CC022247865E241F2D3883DF /* UnregisterSwampMessage.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UnregisterSwampMessage.swift; path = MinCloud/Swamp/UnregisterSwampMessage.swift; sourceTree = "<group>"; };
 		C4B93B11782D65A58B40AB3698D4B2D9 /* Security.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Security.swift; path = Sources/Security/Security.swift; sourceTree = "<group>"; };
 		C51F9190B6D7C8E4FE38197FF6419644 /* Starscream.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Starscream.debug.xcconfig; sourceTree = "<group>"; };
@@ -458,7 +458,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E8E281159D25F748F79A4B19B28EB5D5 /* Foundation.framework in Frameworks */,
+				AECC24035AE2DEF02C615172832ABF50 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +467,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				82C295D035C519EEECA1918F38C2588D /* Alamofire.framework in Frameworks */,
-				F5B7BF61E0177028DD010C80374D37AA /* Foundation.framework in Frameworks */,
+				436C7632FF744FE1BD0ECA70492E1781 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -475,8 +475,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A738C2A39C0150BBA7EA5EC19B95F03E /* CFNetwork.framework in Frameworks */,
-				F6B16DC8CADA07287C6A372AC8AD787C /* Foundation.framework in Frameworks */,
+				A9C7B29D4878F1690BBE3F8195CF0313 /* CFNetwork.framework in Frameworks */,
+				476D5F33E25386C60D6BD75C4FA97C67 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -484,7 +484,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				957F138A7A6A69F27EF63B6F4F05005D /* Foundation.framework in Frameworks */,
+				035798E9DD79ECF3832B70CBF15BAAC6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -492,7 +492,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7298C3FBB98D8912A8572FC3F60628B /* Foundation.framework in Frameworks */,
+				CBFFE469B78BEFDD2BAB1C744C5D5B10 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -531,15 +531,6 @@
 				3B604B9663DB7F9AE5DE7D18037A8339 /* AlipaySDK.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		4BF62439A2FE1F58E9E704216CF2CE03 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				32BD7B93FEA70BDFD057550D07FA7961 /* CFNetwork.framework */,
-				3F401E181BEA002337E464DED414F440 /* Foundation.framework */,
-			);
-			name = iOS;
 			sourceTree = "<group>";
 		};
 		59E03627E76EAA1B22D0AE401D5D7899 /* Support Files */ = {
@@ -689,7 +680,7 @@
 			isa = PBXGroup;
 			children = (
 				D0FF301302A2A77E95697F2B5692FA5E /* Alamofire.framework */,
-				4BF62439A2FE1F58E9E704216CF2CE03 /* iOS */,
+				C5DA6AFE22B4BD7F9A7902BFAC53F976 /* iOS */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -859,6 +850,15 @@
 				AEF6BFD0E9144B98931CA327922ECD5E /* MinCloud.bundle */,
 			);
 			name = Resources;
+			sourceTree = "<group>";
+		};
+		C5DA6AFE22B4BD7F9A7902BFAC53F976 /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				C1615E1FA68C09F9971FB26DF9B7D2BC /* CFNetwork.framework */,
+				1AC44BC108255F6766BF5383BF088F46 /* Foundation.framework */,
+			);
+			name = iOS;
 			sourceTree = "<group>";
 		};
 		CF1408CF629C7361332E53B88F7BD30C = {
@@ -1387,123 +1387,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		17573C45DD605414B9880EAE0BE5D955 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = C51F9190B6D7C8E4FE38197FF6419644 /* Starscream.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Starscream/Starscream.modulemap";
-				PRODUCT_MODULE_NAME = Starscream;
-				PRODUCT_NAME = Starscream;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3186CCDB07F8B0F50FE84415C2136428 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = E6DA50727B5F6B745FFD353A4CFAE1A6 /* Moya.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Moya/Moya-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Moya/Moya-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Moya/Moya.modulemap";
-				PRODUCT_MODULE_NAME = Moya;
-				PRODUCT_NAME = Moya;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		335D3B667F7C14F153F22845C76050E8 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 35EEBC2545277D489C4968DB0CD6526F /* MinCloud.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/MinCloud/MinCloud-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/MinCloud/MinCloud-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/MinCloud/MinCloud.modulemap";
-				PRODUCT_MODULE_NAME = MinCloud;
-				PRODUCT_NAME = MinCloud;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		4566888B80A41DD4053C2B2E14165E05 /* Release */ = {
+		047E47DE94F8CE5A591F22BA34DF30B5 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 0BB27462B41F7CFB40081F09AEF75537 /* Pods-MinCloudTest.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1536,7 +1425,187 @@
 			};
 			name = Release;
 		};
-		6ACE01E101CD05C2D9274B28BE586706 /* Release */ = {
+		190615A72FE469F190CBDC1C3EF08A22 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E6DA50727B5F6B745FFD353A4CFAE1A6 /* Moya.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Moya/Moya-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Moya/Moya-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Moya/Moya.modulemap";
+				PRODUCT_MODULE_NAME = Moya;
+				PRODUCT_NAME = Moya;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		2444D36F2CB5FF3F9469EF5F6322EA10 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BD34AC8A9F8AFD92823E6F194B9CC373 /* Alamofire.debug.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		31B561057DB8E49482D61258080E6C22 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9F6DD5BA675F334D44AB129465AE7625 /* Pods-MinCloudTest.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-MinCloudTest/Pods-MinCloudTest-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-MinCloudTest/Pods-MinCloudTest.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		484DD5A9C28EBBE53BE171AC7CD3C651 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35EEBC2545277D489C4968DB0CD6526F /* MinCloud.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/MinCloud/MinCloud-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/MinCloud/MinCloud-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/MinCloud/MinCloud.modulemap";
+				PRODUCT_MODULE_NAME = MinCloud;
+				PRODUCT_NAME = MinCloud;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		72CF53B8E6D0245B913472FFC82CA92F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2E0DC80ED005C1C2D4B04A4BE3BEA86F /* Starscream.release.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Starscream/Starscream.modulemap";
+				PRODUCT_MODULE_NAME = Starscream;
+				PRODUCT_NAME = Starscream;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		7EE7A78859F657F6BEFC651185B43192 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1563,6 +1632,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1597,13 +1667,11 @@
 			};
 			name = Release;
 		};
-		A1DA08CAC9D34D3CFBAAD1728B1C201D /* Debug */ = {
+		852B3845B24D02A5BA213C667F81AEDF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 9F6DD5BA675F334D44AB129465AE7625 /* Pods-MinCloudTest.debug.xcconfig */;
+			baseConfigurationReference = CE32B6599D19422B2A157841C11B5F99 /* Moya.debug.xcconfig */;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1612,7 +1680,8 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-MinCloudTest/Pods-MinCloudTest-Info.plist";
+				GCC_PREFIX_HEADER = "Target Support Files/Moya/Moya-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Moya/Moya-Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -1620,27 +1689,94 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-MinCloudTest/Pods-MinCloudTest.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				MODULEMAP_FILE = "Target Support Files/Moya/Moya.modulemap";
+				PRODUCT_MODULE_NAME = Moya;
+				PRODUCT_NAME = Moya;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		A7A9F97993447ED587E1BD3152BBE8FB /* Debug */ = {
+		9B66E952E27F29569285AB82461A2F34 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6C55FA370BB14D2E518493A794EB9EF2 /* Alamofire.release.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
+				PRODUCT_MODULE_NAME = Alamofire;
+				PRODUCT_NAME = Alamofire;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.3;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		A3049A58A068B068D1650E09B0DC0FEC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = C51F9190B6D7C8E4FE38197FF6419644 /* Starscream.debug.xcconfig */;
+			buildSettings = {
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MODULEMAP_FILE = "Target Support Files/Starscream/Starscream.modulemap";
+				PRODUCT_MODULE_NAME = Starscream;
+				PRODUCT_NAME = Starscream;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		B3ED01440C6EEF06A1776D50F6936CCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 9C2C062587805696E32CC3A894331466 /* MinCloud.debug.xcconfig */;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
@@ -1672,7 +1808,7 @@
 			};
 			name = Debug;
 		};
-		B1B259C5FB7465EF9C71163827046E70 /* Debug */ = {
+		D299434AB35E7FD6F7921C8EF24742FF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -1699,6 +1835,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -1737,159 +1874,14 @@
 			};
 			name = Debug;
 		};
-		B59A43BEA26997937796AE37175C6B0D /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = BD34AC8A9F8AFD92823E6F194B9CC373 /* Alamofire.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				PRODUCT_MODULE_NAME = Alamofire;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		DD7DD02A7D260D7DE8A9D5F5A993200C /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CE32B6599D19422B2A157841C11B5F99 /* Moya.debug.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Moya/Moya-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Moya/Moya-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Moya/Moya.modulemap";
-				PRODUCT_MODULE_NAME = Moya;
-				PRODUCT_NAME = Moya;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		F51DAAA511BD47B058880847A3C2293E /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6C55FA370BB14D2E518493A794EB9EF2 /* Alamofire.release.xcconfig */;
-			buildSettings = {
-				CLANG_ENABLE_OBJC_WEAK = NO;
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Alamofire/Alamofire-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Alamofire/Alamofire-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Alamofire/Alamofire.modulemap";
-				PRODUCT_MODULE_NAME = Alamofire;
-				PRODUCT_NAME = Alamofire;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.3;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		F90CF44A1572F0BE61489E0A008C8916 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2E0DC80ED005C1C2D4B04A4BE3BEA86F /* Starscream.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/Starscream/Starscream-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/Starscream/Starscream-Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
-				MODULEMAP_FILE = "Target Support Files/Starscream/Starscream.modulemap";
-				PRODUCT_MODULE_NAME = Starscream;
-				PRODUCT_NAME = Starscream;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B1B259C5FB7465EF9C71163827046E70 /* Debug */,
-				6ACE01E101CD05C2D9274B28BE586706 /* Release */,
+				D299434AB35E7FD6F7921C8EF24742FF /* Debug */,
+				7EE7A78859F657F6BEFC651185B43192 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1897,8 +1889,8 @@
 		67A78619042C71493B660DCE2AE30D98 /* Build configuration list for PBXNativeTarget "Moya" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				DD7DD02A7D260D7DE8A9D5F5A993200C /* Debug */,
-				3186CCDB07F8B0F50FE84415C2136428 /* Release */,
+				852B3845B24D02A5BA213C667F81AEDF /* Debug */,
+				190615A72FE469F190CBDC1C3EF08A22 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1906,8 +1898,8 @@
 		78E219AC01CD5AFED663C9AB28280801 /* Build configuration list for PBXNativeTarget "Alamofire" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				B59A43BEA26997937796AE37175C6B0D /* Debug */,
-				F51DAAA511BD47B058880847A3C2293E /* Release */,
+				2444D36F2CB5FF3F9469EF5F6322EA10 /* Debug */,
+				9B66E952E27F29569285AB82461A2F34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1915,8 +1907,8 @@
 		7AE3B63CF457EE4D0B829BB22C141177 /* Build configuration list for PBXNativeTarget "Starscream" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				17573C45DD605414B9880EAE0BE5D955 /* Debug */,
-				F90CF44A1572F0BE61489E0A008C8916 /* Release */,
+				A3049A58A068B068D1650E09B0DC0FEC /* Debug */,
+				72CF53B8E6D0245B913472FFC82CA92F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1924,8 +1916,8 @@
 		9F46366EAEC64E545D0C68A6E7C0EF72 /* Build configuration list for PBXNativeTarget "MinCloud" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A7A9F97993447ED587E1BD3152BBE8FB /* Debug */,
-				335D3B667F7C14F153F22845C76050E8 /* Release */,
+				B3ED01440C6EEF06A1776D50F6936CCA /* Debug */,
+				484DD5A9C28EBBE53BE171AC7CD3C651 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -1933,8 +1925,8 @@
 		E203434078AC7BCF23578210BEEB4086 /* Build configuration list for PBXNativeTarget "Pods-MinCloudTest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				A1DA08CAC9D34D3CFBAAD1728B1C201D /* Debug */,
-				4566888B80A41DD4053C2B2E14165E05 /* Release */,
+				31B561057DB8E49482D61258080E6C22 /* Debug */,
+				047E47DE94F8CE5A591F22BA34DF30B5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

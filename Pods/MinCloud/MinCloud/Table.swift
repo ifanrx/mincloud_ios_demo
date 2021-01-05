@@ -9,14 +9,28 @@
 import UIKit
 import Moya
 
-public typealias RecordOptionKey = String
-
 /// 数据表的记录在进行 save/update/delete 操作时，可以附带的选项。
-@objc(RecordOption)
-public class RecordOption: NSObject {
-    @objc public static let enableTrigger: RecordOptionKey = "enable_trigger" // 是否允许触发器触发
+@objc(RecordOptionKey)
+public class RecordOptionKey: NSObject, NSCopying {
+    public func copy(with zone: NSZone? = nil) -> Any {
+        let aCopy = RecordOptionKey(key: key)
+        return aCopy
+    }
+    
+    let key: String
+    private init(key: String) {
+        self.key = key
+        super.init()
+    }
+    
+    /// 是否允许触发器触发
+    /// 该参数对应值为 Bool 类型，默认 true。
+    @objc public static let enableTrigger = RecordOptionKey(key: "enable_trigger")
 }
 
+/// 数据表
+/// 对应知晓云的数据表
+/// 通过 Table 对象操作知晓云对应 Id 的数据表。
 @objc(BaaSTable)
 open class Table: NSObject {
     public internal(set) var Id: String?
@@ -39,15 +53,15 @@ open class Table: NSObject {
 
     /// 创建一条空记录
     ///
-    /// - Returns:
+    /// - Returns: 一条空记录
     @objc public func createRecord() -> Record {
         return Record(table: self)
     }
 
-    /// 示例化一条记录
+    /// 通过记录 Id 来创建一条记录，如果 recordId 为空字符串，则返回 nil。
     ///
     /// - Parameter recordId: 记录 Id
-    /// - Returns:
+    /// - Returns: 记录
     @objc public func getWithoutData(recordId: String) -> Record? {
         guard !recordId.isEmpty else { return nil }
         return Record(table: self, Id: recordId)
@@ -57,7 +71,7 @@ open class Table: NSObject {
     ///
     /// - Parameters:
     ///   - records: 记录值
-    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器。可选
+    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器，默认为 true。可选
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
@@ -74,7 +88,10 @@ open class Table: NSObject {
             return nil
         }
 
-        let args = options ?? [:]
+        var args = [String: Any]()
+        for option in options ?? [:] {
+            args[option.key.key] = option.value
+        }
         let request = Table.TableProvider.request(.createRecords(tableId: identifier, recordData: jsonData!, parameters: args), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (resultInfo: MappableDictionary?, error: NSError?) in
                 completion(resultInfo?.value, error)
@@ -87,14 +104,16 @@ open class Table: NSObject {
     ///
     /// - Parameters:
     ///   - query: 查询条件，将会删除满足条件的记录。如果不设置条件，将删除该表的所有记录。可选
-    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器。可选
+    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器，默认为 true。可选
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
     @objc public func delete(query: Query? = nil, options: [RecordOptionKey: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
 
         var queryArgs: [String: Any] = query?.queryArgs ?? [:]
-        queryArgs.merge(options ?? [:])
+        for option in options ?? [:] {
+            queryArgs[option.key.key] = option.value
+        }
         let request = Table.TableProvider.request(.delete(tableId: identifier, parameters: queryArgs), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (resultInfo: MappableDictionary?, error: NSError?) in
                 completion(resultInfo?.value, error)
@@ -138,14 +157,16 @@ open class Table: NSObject {
     /// - Parameters:
     ///   - record: 需要更新的记录值
     ///   - query: 查询条件，满足条件的记录将被更新
-    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器。可选
+    ///   - options: 选项,目前 RecordOptionKey 仅支持 enableTrigger，表示是否触发触发器，默认为 true。可选
     ///   - completion: 结果回调
     /// - Returns:
     @discardableResult
     @objc public func update(record: Record, query: Query? = nil, options: [RecordOptionKey: Any]? = nil, completion:@escaping OBJECTResultCompletion) -> RequestCanceller? {
 
         var queryArgs: [String: Any] = query?.queryArgs ?? [:]
-        queryArgs.merge(options ?? [:])
+        for option in options ?? [:] {
+            queryArgs[option.key.key] = option.value
+        }
         let request = Table.TableProvider.request(.update(tableId: identifier, urlParameters: queryArgs, bodyParameters: record.recordParameter.jsonValue()), callbackQueue: callBackQueue) { result in
             ResultHandler.parse(result, handler: { (resultInfo: MappableDictionary?, error: NSError?) in
                 completion(resultInfo?.value, error)

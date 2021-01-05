@@ -29,7 +29,7 @@ struct BatchCase {
     }
     
     static func batchCreate(enable_trigger: Bool) {
-        let options = ["enable_trigger": enable_trigger]
+        let options = [RecordOptionKey.enableTrigger: enable_trigger]
         
         table.createMany([CreateRecordDict(),
                           CreateRecordDict()], options: options) { (result, error) in
@@ -38,7 +38,7 @@ struct BatchCase {
     }
     
     static func batchUpdate(enable_trigger: Bool) {
-        let options = ["enable_trigger": enable_trigger]
+        let options = [RecordOptionKey.enableTrigger: enable_trigger]
         let record = table.createRecord()
         record.set("date", value: Date.curDate())
         let whereArgs = Where.compare("bool", operator: .equalTo, value: true)
@@ -50,7 +50,7 @@ struct BatchCase {
     }
     
     static func batchUpdateTotalCount(enable_trigger: Bool) {
-        let options = ["enable_trigger": enable_trigger]
+        let options = [RecordOptionKey.enableTrigger: enable_trigger]
         let record = table.createRecord()
         record.set("date", value: Date.curDate())
         let whereArgs = Where.compare("bool", operator: .equalTo, value: true)
@@ -63,7 +63,7 @@ struct BatchCase {
     }
     
     static func batchDelete(enable_trigger: Bool) {
-        let options = ["enable_trigger": enable_trigger]
+        let options = [RecordOptionKey.enableTrigger: enable_trigger]
         let whereArgs = Where.compare("bool", operator: .equalTo, value: true)
         let query = Query()
         query.where = whereArgs
@@ -73,7 +73,7 @@ struct BatchCase {
     }
     
     static func batchDeleteTotalCount(enable_trigger: Bool) {
-        let options = ["enable_trigger": enable_trigger]
+        let options = [RecordOptionKey.enableTrigger: enable_trigger]
         let whereArgs = Where.compare("bool", operator: .equalTo, value: false)
         let query = Query()
         query.where = whereArgs

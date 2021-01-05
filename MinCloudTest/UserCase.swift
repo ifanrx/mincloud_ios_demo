@@ -135,7 +135,7 @@ struct UserCase {
     
     // 通过邮箱重置密码
     static func resetPassword(email: String) {
-        UserCase.currentUser?.resetPassword(email: email) { (success, error) in
+        Auth.resetPassword(email: email) { (success, error) in
             setResult(["reuslt: \(success)"], error: error)
         }
     }

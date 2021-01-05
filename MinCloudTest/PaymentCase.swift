@@ -10,14 +10,23 @@ import Foundation
 import MinCloud
 
 struct PaymentCase {
-    static func wxPay(schemaID: String? = nil, recordID: String? = nil) {
-        Pay.shared.wxPay(totalCost: 0.01, merchandiseDescription: "微信", merchandiseSchemaID: schemaID, merchandiseRecordID: recordID) { (order, error) in
+    static func wxPay(schemaID: String? = nil, recordID: String? = nil, profitSharing: Bool) {
+        
+        var options: [PaymentOptionKey: Any] = [.profitSharing: profitSharing]
+        if let schemaID = schemaID {
+            options[PaymentOptionKey.merchandiseSchemaID] = schemaID
+        }
+        if let recordID = recordID {
+            options[PaymentOptionKey.merchandiseRecordID] = recordID
+        }
+        
+        Pay.shared.wxPay(totalCost: 0.01, merchandiseDescription: "微信支付", options: options) { (order, error) in
             setResult(order, error: error)
         }
     }
     
     static func aliPay(schemaID: String? = nil, recordID: String? = nil) {
-        Pay.shared.aliPay(totalCost: 0.01, merchandiseDescription: "支付宝", merchandiseSchemaID: schemaID, merchandiseRecordID: recordID) { (order, error) in
+        Pay.shared.aliPay(totalCost: 0.01, merchandiseDescription: "支付宝支付") { (order, error) in
             setResult(order, error: error)
         }
     }

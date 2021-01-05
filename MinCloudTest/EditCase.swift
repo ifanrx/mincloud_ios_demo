@@ -35,7 +35,7 @@ struct EditCase {
                         "arrayObj": [["key1": 1], ["key2": 2], ["key3": 3]],
                         "object": ["key1": 1, "key2": "2", "key3": ["key33": 33]],
                         "date": Date.curDate(),
-                        "pointer": user,
+                        "pointer": user!,
                         "point": point,
                         "polygon": polygon,
                         "file": file!,
@@ -56,9 +56,7 @@ struct EditCase {
         }
         
         record?.set(recordDict)
-        let query = Query()
-        query.expand = ["pointer"]
-        record?.save(query: query, options: [RecordOption.enableTrigger: true], completion: { (result, error) in
+        record?.save(expand: ["pointer"], options: [RecordOptionKey.enableTrigger: true], completion: { (result, error) in
             setResult(record, error: error)
             if error == nil {
                 handler()
@@ -75,7 +73,7 @@ struct EditCase {
         
         let userTable = Table(name: "_userprofile")
         let user = userTable.getWithoutData(recordId: "93926364320105")
-        record?.set("pointer", value: user)
+        record?.set("pointer", value: user!)
         record?.set("string", value: String.random())
         record?.set("integer", value: Int.random())
         record?.set("number", value: Float.random())
@@ -114,7 +112,7 @@ struct EditCase {
     
     // 删除记录
     static func deleteRecord(handler:@escaping () -> Void) {
-        record?.delete(options: [RecordOption.enableTrigger: true], completion: { (result, error) in
+        record?.delete(options: [RecordOptionKey.enableTrigger: true], completion: { (result, error) in
             setResult(["result": result], error: error)
             if error == nil {
                 record = nil
@@ -147,7 +145,7 @@ struct EditCase {
     static func updatePointer(id: String) {
         let userTable = Table(name: "_userprofile")
         let user = userTable.getWithoutData(recordId: id)
-        record?.set("pointer", value: user)
+        record?.set("pointer", value: user!)
         record?.update(completion: { (result, error) in
             setResult(record, error: error)
         })
@@ -172,9 +170,7 @@ struct EditCase {
     // 更新
     static func atomUpdate() {
         record?.set("integer", value: 5)
-        let query = Query()
-        query.expand = ["pointer"]
-        record?.update(query: query, options: [RecordOption.enableTrigger: true], completion: { (result, error) in
+        record?.update(expand: ["pointer"], options: [RecordOptionKey.enableTrigger: true], completion: { (result, error) in
             setResult(record, error: error)
         })
     }
